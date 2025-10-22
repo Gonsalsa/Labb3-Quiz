@@ -1,0 +1,38 @@
+﻿<Window x:Class="Labb3_NET22.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Labb3_NET22"
+        mc:Ignorable="d"
+        Title="HomeScreen" Height="450" Width="800">
+    <Grid Background="#E6C795">
+        
+        <Grid.RowDefinitions >
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="1" Grid.Row="3" Fill="#8A72D1"/>
+        <Rectangle Grid.Column="1" Grid.Row="4" Fill="LawnGreen"/>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" 
+                   Text="Quiz" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="63"
+                   Foreground="#8A72D1"
+                   FontStyle="Italic"
+                   FontFamily="Baskerville Old Face"/>
+
+    </Grid>
+</Window>
