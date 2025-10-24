@@ -6,54 +6,7 @@
         xmlns:local="clr-namespace:Labb3_NET22"
         mc:Ignorable="d"
         Title="HomeScreen" Height="450" Width="800">
-    <Grid Background="#E6C795">
-
-        <Grid.RowDefinitions >
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
         
-        <TextBlock Grid.Column="1" Grid.Row="1" 
-                   Text="Quiz" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="63"
-                   Foreground="#8A72D1"
-                   FontStyle="Italic"
-                   FontFamily="Baskerville Old Face"/>
-       
-        <Button Grid.Column="1" Grid.Row="3" 
-                Content="Start"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="45"
-                   Foreground="#8A72D1"
-                   FontStyle="Italic"
-                   FontFamily="Baskerville Old Face" 
-                   Width="400"
-                   Height="90"/>
-        
-        <Button Grid.Column="1" Grid.Row="4"
-                   Content="redigera quiz"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="45"
-                   Foreground="#8A72D1"
-                   FontStyle="Italic"
-                   FontFamily="Baskerville Old Face" 
-                   Width="400" 
-                   Height="90"/>
-
-
     </Grid>
 </Window>
