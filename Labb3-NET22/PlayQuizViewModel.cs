@@ -64,15 +64,28 @@ namespace Labb3_NET22
 
             QuestionAnswerd.Add(CurrentQuestion);
 
-            CurrentQuestion = Quiz.GetRandomQuestion();
+            bool isUsed = true;
 
-            var nextQuest = QuestionAnswerd.Any(q => q.Statement == CurrentQuestion.Statement);
-
-            if (nextQuest == true)
+            while (isUsed)
             {
-                
                 CurrentQuestion = Quiz.GetRandomQuestion();
+
+                var nextQuest = QuestionAnswerd.Any(q => q.Statement == CurrentQuestion.Statement);
+
+                if (nextQuest == true)
+                {
+                    CurrentQuestion = Quiz.GetRandomQuestion();
+
+                }
+                else
+                {
+                    isUsed = false;
+                    break;
+                }
+
             }
+
+
 
             OnPropertyChange("CurrentQuestion");
             OnPropertyChange("ScoreText");
