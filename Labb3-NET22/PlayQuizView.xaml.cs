@@ -32,6 +32,17 @@ namespace Labb3_NET22
             Button button = sender as Button;
             int selectedIndex = int.Parse(button.Tag.ToString());
             ViewModel.NextQuestion(selectedIndex);
+
+            if (ViewModel.isFinished)
+            {
+                if (Application.Current.MainWindow is MainWindow mw)
+                {
+                  mw.Content = new Labb3_NET22.ScoreWindowView(ViewModel);
+
+                }
+            }
         }
+
+
     }
 }

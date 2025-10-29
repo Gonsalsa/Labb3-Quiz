@@ -53,7 +53,8 @@
                 FontStyle="Italic"
                 FontFamily="Baskerville Old Face" 
                 Width="400" 
-                Height="90"/>
+                Height="90"
+                />
 
 
     </Grid>

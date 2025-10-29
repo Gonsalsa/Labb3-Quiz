@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 namespace Labb3_NET22
 {
     /// <summary>
-    /// Interaction logic for ScoreWindowView.xaml
+    /// Interaction logic for EditView.xaml
     /// </summary>
-    public partial class ScoreWindowView : UserControl
+    public partial class EditView : UserControl
     {
-        public ScoreWindowView(PlayQuizViewModel viewModel)
+        public EditView()
         {
             InitializeComponent();
-            DataContext = viewModel;
         }
     }
 }

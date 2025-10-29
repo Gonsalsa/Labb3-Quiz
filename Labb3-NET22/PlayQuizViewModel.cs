@@ -17,6 +17,8 @@ namespace Labb3_NET22
         public int CorrectAnswers { get; set; }
         public int TotalAnswerd { get; set; }
 
+        public bool isFinished = false;
+
         public List<Question> QuestionAnswerd = new List<Question>();
 
         public string ScoreText
@@ -63,7 +65,7 @@ namespace Labb3_NET22
             }
 
             QuestionAnswerd.Add(CurrentQuestion);
-
+                                                      
             bool isUsed = true;
 
             while (isUsed)
@@ -72,7 +74,14 @@ namespace Labb3_NET22
 
                 var nextQuest = QuestionAnswerd.Any(q => q.Statement == CurrentQuestion.Statement);
 
-                if (nextQuest == true)
+                if (QuestionAnswerd.Count == Quiz.Questions.Count)
+                {
+                    isFinished = true;
+                    isUsed = false;
+                    break;
+                }
+
+                    if (nextQuest == true)
                 {
                     CurrentQuestion = Quiz.GetRandomQuestion();
 
