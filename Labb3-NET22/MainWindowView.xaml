@@ -9,17 +9,16 @@
     <Grid Background="#E6C795">
 
         <Grid.RowDefinitions >
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="80" />
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="80"/>
+            
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -30,31 +29,30 @@
                 FontSize="63"
                 Foreground="#8A72D1"
                 FontStyle="Italic"
-                FontFamily="Baskerville Old Face"/>
+                FontFamily="Baskerville Old Face"
+                   Margin="30"/>
 
-        <Button Grid.Column="1" Grid.Row="3" 
-             Content="Start"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="45"
-                Foreground="#8A72D1"
-                FontStyle="Italic"
-                FontFamily="Baskerville Old Face" 
-                Width="400"
-                Height="90"
-                Click="StartButton_Click"/>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <Button x:Name="StartButton" Content="Start" FontSize="30"
+                    FontStyle="Italic"
+                    Click="StartButton_Click"
+                    Width="300"
+                    Margin="10"/>
+            <Button x:Name="EditButton" Content="Redigera" FontSize="30"
+                    FontStyle="Italic" 
+                    Click="EditButton_Click"
+                    Width="300"
+                    Margin="10"/>
+            <Button x:Name="NewQuizButton" Content="Skapa nytt Quiz" FontSize="30"
+                    FontStyle="Italic"
+                    Click="NewQuizButton_Click"
+                    Width="300"
+                    Margin="10"/>
 
-        <Button Grid.Column="1" Grid.Row="4"
-                Content="redigera quiz"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="45"
-                Foreground="#8A72D1"
-                FontStyle="Italic"
-                FontFamily="Baskerville Old Face" 
-                Width="400" 
-                Height="90"
-                />
+
+        </StackPanel>
+          
+            
 
 
     </Grid>

@@ -31,5 +31,18 @@ namespace Labb3_NET22
                 mw.Content = new PlayQuizView();
             }
         }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewQuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow is MainWindow mw)
+            {
+                mw.Content = new QuizCreator();
+            }
+        }
     }
 }
