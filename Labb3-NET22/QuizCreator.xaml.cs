@@ -21,7 +21,7 @@ namespace Labb3_NET22
     /// </summary>
     public partial class QuizCreator : UserControl
     {
-        private Quiz CurrentQuiz = new Quiz();
+        public Quiz CurrentQuiz = new Quiz();
 
         public bool ControllInput()
         {
