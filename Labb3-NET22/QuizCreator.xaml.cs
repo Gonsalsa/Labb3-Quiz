@@ -110,9 +110,9 @@ namespace Labb3_NET22
                 CurrentQuiz = new Quiz();
             }
 
-            if (CurrentQuiz.Questions == null || CurrentQuiz.Questions.Count < 5)
+            if (CurrentQuiz.Questions == null)
             {
-                MessageBox.Show("Det måste vara minst fem frågor i quizet!");
+                MessageBox.Show("Det måste vara minst en fråga i quizet för att det ska kunna sparas!");
                 return;
             }
 

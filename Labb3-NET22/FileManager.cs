@@ -22,5 +22,35 @@ namespace Labb3_NET22
             await File.WriteAllTextAsync(path, json);
         }
 
+        public static List<string> GetTitle()
+        {
+            if(!Directory.Exists(Folder))
+            {
+                return new List<string>();
+            }
+
+            return Directory.GetFiles(Folder, "*.json")
+                .Select(Path.GetFileNameWithoutExtension)
+                .OrderBy(x => x)
+                .ToList();
+        }
+
+        public static async Task<Quiz?> GetFiles(string title)
+        {
+            Directory.CreateDirectory(Folder);
+            var filePath = Path.Combine(Folder, title + ".json");
+            if(!File.Exists(filePath))
+            {
+                return null;
+            }
+
+            var json = await File.ReadAllTextAsync(filePath);
+
+            return JsonSerializer.Deserialize<Quiz>(json);
+
+        }
+
+
+
     }
 }

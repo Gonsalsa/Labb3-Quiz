@@ -24,5 +24,13 @@ namespace Labb3_NET22
             InitializeComponent();
             DataContext = viewModel;
         }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(Application.Current.MainWindow is MainWindow mw)
+            {
+                mw.Content = new Labb3_NET22.MainWindowView();
+            }
+        }
     }
 }

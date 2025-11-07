@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -29,6 +30,13 @@
                    Foreground="#8A72D1"
                                       />
 
+        <Button Grid.Row="2" Grid.Column="1"
+                x:Name="HomeButton"
+                Content="Huvudmeny"
+                FontSize="30"
+                FontStyle="Italic"
+                Width="300"
+                Click="HomeButton_Click"/>
 
     </Grid>
 </UserControl>
