@@ -28,13 +28,16 @@ namespace Labb3_NET22
         {
             if (Application.Current.MainWindow is MainWindow mw)
             {
-                mw.Content = new PlayQuizView();
+                mw.Content = new Labb3_NET22.SelectQuiz();
             }
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Application.Current.MainWindow is MainWindow mw)
+            {
+                mw.Content = new SelectQuiz();
+            }
         }
 
         private void NewQuizButton_Click(object sender, RoutedEventArgs e)

@@ -34,19 +34,17 @@ namespace Labb3_NET22
             }
         }
 
-        public PlayQuizViewModel()
+        public PlayQuizViewModel(Quiz quiz)
         {
-            Quiz = new Quiz("TestQuiz");
-            Quiz.AddQuestion("Vad heter Kejsaren i början av filmen Gladiator?", 2, "Maximus Decimus Veridius", "Comodius", "Marcus Aurelius", "Caesar");
-            Quiz.AddQuestion("Vem var ringaren i Notre Dame?", 0, "Quasimodo", "Nostradamus", "Quizer", "Quijote");
-            Quiz.AddQuestion("Vilken bok ingår inte i orginal Millenium Triologin?", 1, "Män som hatar Kvinnor", "Det som inte dödar oss", "Flickan som lekte med elden", "Luftslottet som sprängdes");
-
+            Quiz = quiz;
+            CorrectAnswers = 0;
+            TotalAnswerd = 0;
             CurrentQuestion = Quiz.GetRandomQuestion();
-            SelectedAnswerIndex = -1;
-            OnPropertyChange("CurrentQuestion");
+            OnPropertyChange(nameof(CurrentQuestion));
+            OnPropertyChange(nameof(ScoreText));
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public void OnPropertyChange([CallerMemberName] string name = "")
         {

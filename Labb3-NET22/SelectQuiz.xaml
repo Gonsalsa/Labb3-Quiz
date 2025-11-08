@@ -27,7 +27,8 @@
 
         <Button x:Name="BackButton" Grid.Row="0" Grid.Column="2" Height="40" Width="80"
                 VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20"
-                Content="Huvudmeny"/>
+                Content="Huvudmeny"
+                Click="BackButton_Click"/>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
             <ItemsControl x:Name="ListOfQuizes">  

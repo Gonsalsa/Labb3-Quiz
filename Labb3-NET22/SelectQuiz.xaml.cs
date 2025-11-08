@@ -25,13 +25,13 @@ namespace Labb3_NET22
         {
             InitializeComponent();
             editMode = isEditing;
-            
+            GetTitle();
         }
 
         private void GetTitle()
         {
             var titles = FileManager.GetTitle();
-            if(titles.Count == 0)
+            if (titles.Count == 0)
             {
                 MessageBox.Show("Du har inga sparaade quiz");
                 return;
@@ -41,12 +41,16 @@ namespace Labb3_NET22
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(sender is Button btn && btn.Content is string title)
+            if (sender is Button btn && btn.Content is string title)
             {
                 selectedTitle = title;
-                if(editMode)
+                if (editMode)
                 {
-                    await 
+                    await Editing(title);
+                }
+                else
+                {
+                    await PlayQuiz(title);
                 }
             }
         }
@@ -54,17 +58,37 @@ namespace Labb3_NET22
         private async Task Editing(string title)
         {
             var quiz = await FileManager.GetFiles(title);
-            if(quiz == null)
+            if (quiz == null)
             {
                 MessageBox.Show("Kunde inte ladda quizet ordentligt");
                 return;
             }
-            if(Application.Current.MainWindow is MainWindow mw)
+            if (Application.Current.MainWindow is MainWindow mw)
             {
-                mw.Content = Labb3_NET22.QuizEditor(quiz, title);
+                mw.Content = new Labb3_NET22.QuizEditor(quiz, title);
             }
         }
 
-       
+        private async Task PlayQuiz(string title)
+        {
+            var quiz = await FileManager.GetFiles(title);
+            if(quiz == null)
+            {
+                MessageBox.Show("Kunde inte ladda quizet ordentliget");
+                return;
+            }
+            if (Application.Current.MainWindow is MainWindow mw)
+            {
+                mw.Content = new Labb3_NET22.PlayQuizView(quiz);
+            }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow is MainWindow mw)
+            {
+                mw.Content = new MainWindowView();
+            }
+        }
     }
 }
