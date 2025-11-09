@@ -11,7 +11,7 @@ namespace Labb3_NET22
 {
     public class PlayQuizViewModel : INotifyPropertyChanged
     {
-        public Quiz Quiz { get; set; }
+        public QuizManager Quiz { get; set; }
         public Question CurrentQuestion { get; set; }
         public int SelectedAnswerIndex { get; set; }
         public int CorrectAnswers { get; set; }
@@ -36,9 +36,18 @@ namespace Labb3_NET22
 
         public PlayQuizViewModel(Quiz quiz)
         {
-            Quiz = quiz;
-            CorrectAnswers = 0;
-            TotalAnswerd = 0;
+            //Quiz = quiz;
+            //CorrectAnswers = 0;
+            //TotalAnswerd = 0;
+
+            Quiz = new QuizManager("TestQuiz");
+            //Quiz.AddQuestion("Vad heter Svergies huvudstad?", 0, "Stockholm", "Göteborg", "Malmö");
+            //Quiz.AddQuestion("Vilken färg har himmelen?", 2, "Röd", "Grön", "Blå");
+            //Quiz.AddQuestion("Hur många ben har en katt?", 1, "5", "4", "75");
+
+            Quiz.Questions = quiz.Questions;
+
+
             CurrentQuestion = Quiz.GetRandomQuestion();
             OnPropertyChange(nameof(CurrentQuestion));
             OnPropertyChange(nameof(ScoreText));
@@ -54,48 +63,24 @@ namespace Labb3_NET22
             }
         }
 
-        public void NextQuestion(int selectedIndex)
+        public bool NextQuestion(int selectedIndex)
         {
             TotalAnswerd++;
-            if (CurrentQuestion.isCorrect(selectedIndex))
+            bool isRIght = CurrentQuestion.isCorrect(selectedIndex);
+            if (isRIght)
             {
                 CorrectAnswers++;
             }
-
-            QuestionAnswerd.Add(CurrentQuestion);
-                                                      
-            bool isUsed = true;
-
-            while (isUsed)
+            CurrentQuestion = Quiz.GetRandomQuestion();
+            if (CurrentQuestion == null)
             {
-                CurrentQuestion = Quiz.GetRandomQuestion();
-
-                var nextQuest = QuestionAnswerd.Any(q => q.Statement == CurrentQuestion.Statement);
-
-                if (QuestionAnswerd.Count == Quiz.Questions.Count)
-                {
-                    isFinished = true;
-                    isUsed = false;
-                    break;
-                }
-
-                    if (nextQuest == true)
-                {
-                    CurrentQuestion = Quiz.GetRandomQuestion();
-
-                }
-                else
-                {
-                    isUsed = false;
-                    break;
-                }
-
+                isFinished = true;
             }
 
+            OnPropertyChange(nameof(CurrentQuestion));
+            OnPropertyChange(nameof(ScoreText));
 
-
-            OnPropertyChange("CurrentQuestion");
-            OnPropertyChange("ScoreText");
+            return isRIght;
 
         }
 

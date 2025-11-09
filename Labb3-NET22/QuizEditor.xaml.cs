@@ -95,7 +95,7 @@ namespace Labb3_NET22
             newAnswer.Add(a2);
             newAnswer.Add(a3);
             newAnswer.Add(a4);
-            choosenQuestion.Answers = newAnswer.ToArray();
+            choosenQuestion.Answers = newAnswer;
             choosenQuestion.CorrectAnswer = CorrectAnswer.SelectedIndex;
 
             QuestList.Items.Refresh();

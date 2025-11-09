@@ -45,7 +45,7 @@ namespace Labb3_NET22
             }
 
             var json = await File.ReadAllTextAsync(filePath);
-
+            Console.WriteLine(json);
             return JsonSerializer.Deserialize<Quiz>(json);
 
         }

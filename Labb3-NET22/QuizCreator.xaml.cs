@@ -88,11 +88,16 @@ namespace Labb3_NET22
             string[] answers = new[] { Answer1Box, Answer2Box, Answer3Box, Answer4Box }.Select(A => A.Text.Trim()).ToArray();
             int CorrectAnswer = CorrectAnswerBox.SelectedIndex;
 
-            Question NewQuestion = new Question(Question, CorrectAnswer, answers);
+            Question NewQuestion = new Question
+            {
+                Statement = Question,
+                CorrectAnswer = CorrectAnswer,
+                Answers = answers.ToList()
+            };
             CurrentQuiz.Questions.Add(NewQuestion);
             MessageBox.Show("Frågan har lagts till!");
             ClearPage();
-            CurrentQuiz = new Quiz();
+            //CurrentQuiz = new Quiz();
         }
 
         private async void SaveQuizButton_Click(object sender, RoutedEventArgs e)
@@ -119,7 +124,7 @@ namespace Labb3_NET22
             await FileManager.SaveQuiz(CurrentQuiz);
             MessageBox.Show("Quizet Sparat!");
             ClearPage();
-            CurrentQuiz = new Quiz();
+            //CurrentQuiz = new Quiz();
 
         }
 
