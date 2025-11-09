@@ -36,21 +36,17 @@ namespace Labb3_NET22
 
         public PlayQuizViewModel(Quiz quiz)
         {
-            //Quiz = quiz;
-            //CorrectAnswers = 0;
-            //TotalAnswerd = 0;
 
             Quiz = new QuizManager("TestQuiz");
-            //Quiz.AddQuestion("Vad heter Svergies huvudstad?", 0, "Stockholm", "Göteborg", "Malmö");
-            //Quiz.AddQuestion("Vilken färg har himmelen?", 2, "Röd", "Grön", "Blå");
-            //Quiz.AddQuestion("Hur många ben har en katt?", 1, "5", "4", "75");
 
             Quiz.Questions = quiz.Questions;
 
-
-            CurrentQuestion = Quiz.GetRandomQuestion();
-            OnPropertyChange(nameof(CurrentQuestion));
-            OnPropertyChange(nameof(ScoreText));
+            CurrentQuestion = Quiz.GetNextQuestion();
+            if (CurrentQuestion != null)
+            {
+                OnPropertyChange(nameof(CurrentQuestion));
+                OnPropertyChange(nameof(ScoreText));
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -71,7 +67,7 @@ namespace Labb3_NET22
             {
                 CorrectAnswers++;
             }
-            CurrentQuestion = Quiz.GetRandomQuestion();
+            CurrentQuestion = Quiz.GetNextQuestion();
             if (CurrentQuestion == null)
             {
                 isFinished = true;

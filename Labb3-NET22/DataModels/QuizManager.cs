@@ -12,6 +12,8 @@ public class QuizManager
 
     private List<Question> UsedQuestions = new();
 
+    private int index = 0;
+
     public QuizManager(string title = "")
     {
         Title = title;
@@ -19,7 +21,7 @@ public class QuizManager
         //r = new Random();
     }
 
-    public Question? GetRandomQuestion()
+    public Question? GetNextQuestion()
     {
         if (Questions.Count == 0)
         {
@@ -30,12 +32,14 @@ public class QuizManager
             return null;
         }
 
-        //var notUsed = Questions.Except(UsedQuestions).ToList();
-        //int index = r.Next(0, notUsed.Count);
-        //var nextQuest = notUsed[index];
+        if (index > (Questions.Count - 1))
+        {
+            return null;
+        }
 
-        var nextQuest = Questions.First();
+        var nextQuest = Questions[index];
         UsedQuestions.Add(nextQuest);
+        index++;
         return nextQuest;
     }
 
@@ -50,7 +54,5 @@ public class QuizManager
         Questions.Add(q);
     }
 
-    public void RemoveQuestion(int index)
-    {
-    }
+
 }

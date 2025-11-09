@@ -11,5 +11,6 @@ namespace Labb3_NET22.DataModels
         public string Title { get; set; }
         public List<Question> Questions { get; set; } = new List<Question>();
 
+     
     }
 }
