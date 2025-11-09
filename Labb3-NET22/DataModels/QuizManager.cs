@@ -18,7 +18,6 @@ public class QuizManager
     {
         Title = title;
         Questions = new List<Question>();
-        //r = new Random();
     }
 
     public Question? GetNextQuestion()
