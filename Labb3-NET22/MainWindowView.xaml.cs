@@ -36,7 +36,7 @@ namespace Labb3_NET22
         {
             if(Application.Current.MainWindow is MainWindow mw)
             {
-                mw.Content = new SelectQuiz();
+                mw.Content = new SelectQuiz(isEditing: true);
             }
         }
 
